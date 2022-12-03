@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Member } from 'src/app/_model/member';
 import { MembersService } from 'src/app/_services/members.service';
 
+
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
@@ -10,12 +11,15 @@ import { MembersService } from 'src/app/_services/members.service';
 })
 export class MemberDetailComponent implements OnInit {
   member: Member | undefined;
+  
 
   constructor(private memberService: MembersService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadMember();
+
   }
+  
 
   loadMember(){
     var username = this.route.snapshot.paramMap.get('username');

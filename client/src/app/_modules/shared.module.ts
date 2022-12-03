@@ -10,6 +10,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
   declarations: [],
   imports: [
     CommonModule,
+    
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ToastrModule.forRoot({

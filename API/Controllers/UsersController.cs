@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using API.Data;
 using API.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using API.Interfaces;
 using AutoMapper;
 using API.DTOs;
-using System.Security.Claims;
 using API.Extensions;
 using API.Helpers;
 
@@ -32,6 +26,7 @@ namespace API.Controllers
            
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]     
         public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
@@ -51,6 +46,7 @@ namespace API.Controllers
         }
 
         //api/users/3
+        [Authorize(Roles = "Member")]
         [HttpGet("{userName}")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {

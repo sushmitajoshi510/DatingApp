@@ -34,9 +34,9 @@ namespace API.Data
             foreach (var user in users)
             {
                 user.UserName = user.UserName.ToLower();
-
+                user.Created = DateTime.SpecifyKind(user.Created, DateTimeKind.Utc);
+                user.LastActive = DateTime.SpecifyKind(user.LastActive, DateTimeKind.Utc);
                 await userManager.CreateAsync(user, "Pa$$w0rd");
-
                 await userManager.AddToRoleAsync(user, "Member");
             }
 
@@ -47,6 +47,12 @@ namespace API.Data
 
             await userManager.CreateAsync(admin, "Pa$$w0rd");
             await userManager.AddToRolesAsync(admin, new[] {"Admin", "Moderator"});
+        }
+
+        public static async Task ClearConnections(DataContext context)
+        {
+            context.Connections.RemoveRange(context.Connections);
+            await context.SaveChangesAsync();
         }
     }
 }

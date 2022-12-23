@@ -9,7 +9,7 @@ processes = []
   image = "docker.io/sushme/datingapp:latest"
 
 [env]
-  ASPNETCORE_URL="http://+:8080"
+  ASPNETCORE_URLS="http://+:8080"
   CloudinarySetting__CloudName="dv9ivmvu0"
   CloudinarySetting__ApiKey="557679655245916"
 

@@ -10,8 +10,8 @@ processes = []
 
 [env]
   ASPNETCORE_URLS="http://+:8080"
-  CloudinarySetting__CloudName="dv9ivmvu0"
-  CloudinarySetting__ApiKey="557679655245916"
+  CloudinarySettings__CloudName="dv9ivmvu0"
+  CloudinarySettings__ApiKey="557679655245916"
 
 [experimental]
   allowed_public_ports = []
